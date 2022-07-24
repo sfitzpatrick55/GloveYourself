@@ -23,8 +23,9 @@
     <None Remove="Microsoft.IdentityModel.JsonWebTokens" />
     <None Remove="Microsoft.IdentityModel.Protocols" />
     <None Remove="Microsoft.IdentityModel.Protocols.OpenIdConnect" />
-    <None Remove="Data\" />
-    <None Remove="Data\Migrations\" />
+    <None Remove="Views\Glove\" />
+    <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    <None Remove="Swashbuckle.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -54,6 +55,8 @@
     <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="6.21.0" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="6.21.0" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.21.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,7 +71,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Data\Migrations\" />
+    <Folder Include="Views\Glove\" />
   </ItemGroup>
 </Project>
