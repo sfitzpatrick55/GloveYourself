@@ -7,14 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\" />
     <None Remove="Microsoft.AspNet.Identity.EntityFramework" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

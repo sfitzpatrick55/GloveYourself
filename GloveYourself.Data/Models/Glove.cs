@@ -9,6 +9,8 @@ namespace GloveYourself.Data.Models
         [Key]
         public int Id { get; set; }
 
+        public byte Image { get; set; }
+
         [Required]
         public string Brand { get; set; }
 
