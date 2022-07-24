@@ -17,6 +17,8 @@ namespace GloveYourself.Models.Glove
 
         [Display(Name="Perfect for:")]
         public string UserTask { get; set; }
+
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
 

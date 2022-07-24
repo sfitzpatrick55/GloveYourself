@@ -16,9 +16,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GloveYourself.Services\GloveYourself.Services.csproj" />
+    <Folder Include="Glove\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Glove\" />
+    <ProjectReference Include="..\GloveYourself.Data\GloveYourself.Data.csproj" />
   </ItemGroup>
 </Project>

@@ -30,5 +30,7 @@ namespace GloveYourself.Data.Models
         public string ApplicationUserId { get; set; }
 
         //public virtual ApplicationUser ApplicationUser { get; set; }
+
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

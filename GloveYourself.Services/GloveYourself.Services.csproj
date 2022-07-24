@@ -9,9 +9,17 @@
   <ItemGroup>
     <None Remove="Microsoft.AspNet.Identity.EntityFramework" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Glove\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Glove\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GloveYourself.Data\GloveYourself.Data.csproj" />
+    <ProjectReference Include="..\GloveYourself.Models\GloveYourself.Models.csproj" />
   </ItemGroup>
 </Project>
