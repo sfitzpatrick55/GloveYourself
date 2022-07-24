@@ -24,6 +24,7 @@
     <None Remove="Microsoft.IdentityModel.Protocols" />
     <None Remove="Microsoft.IdentityModel.Protocols.OpenIdConnect" />
     <None Remove="Data\" />
+    <None Remove="Data\Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -68,5 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 </Project>
