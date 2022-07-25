@@ -1,10 +1,51 @@
-﻿@model GloveYourself.Models.Glove.GloveListItem
+﻿@model IEnumerable<GloveYourself.Models.Glove.GloveIndex>
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "GATE HOUSE Gloves";
 }
 
-<h1>Details</h1>
+<h1>All Gloves</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+<div class="form-group">
+    <a class="btn btn-success" href="gloves/create"><i class="oi oi-plus"></i> Create New</a>
+</div>
+<br />
+
+@if (Model == null)
+{
+    <p><em>Loading...</em></p>
+}
+@*else if (Model.Length == 0)*@
+{
+    <p><em>No Records Found.</em></p>
+}
+else
+{
+    @foreach (var glove in Model)
+    {
+        <div class="row">
+            <div class="col mx-auto justify-content-between">
+
+                <div class="card" style="width: 18rem;">
+                    @*<img src="GloveYourself_BlazorWASM/Shared/Assets/nitrile-black-glove.png" class="card-img-top" alt="black nitrile glove">*@
+                    <div class="card-body">
+                        <h3 class="card-title">@glove.Title</h3>
+                        <h5 class="card-title">@glove.Brand</h5>
+                        <h6 class="card-text">@glove.Description</h6>
+                        <h6 class="card-text">@glove.UserTask</h6>
+                        @*<h6 class="card-text">@glove.GloveSizes</h6>*@
+                        <a class="btn btn-success" href="gloves/edit/@glove.Id">Edit</a>
+                        @*<a class="btn btn-danger" @onclick="@(() => DeleteGlove(glove.Id))">Delete</a>*@
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+}
+
+@*<h1>Details</h1>
 
 <div>
     <h4>Product</h4>
@@ -45,4 +86,4 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@

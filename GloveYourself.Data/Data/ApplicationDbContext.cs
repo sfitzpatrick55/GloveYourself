@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace GloveYourself.WebMVC.Data;
+namespace GloveYourself.Data.Data;
 
 public class ApplicationDbContext : IdentityDbContext
 {

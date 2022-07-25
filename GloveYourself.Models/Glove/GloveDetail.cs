@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GloveYourself.Models.Glove
 {
-    public class GloveListItem
+    public class GloveDetail
     {
         public int Id { get; set; }
 
@@ -15,8 +15,8 @@ namespace GloveYourself.Models.Glove
 
         public string Description { get; set; }
 
-        [Display(Name="Perfect for:")]
-        public string UserTask { get; set; }
+        [Display(Name = "Perfect for:")]
+        public int UserTask { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
     }
