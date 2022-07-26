@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<GloveYourself.Models.Glove.GloveIndex>
 
 @{
-    ViewData["Title"] = "GATE HOUSE Gloves";
+    ViewData["Title"] = "Gloves";
 }
 
 <h1>All Gloves</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 <div class="form-group">
-    <a class="btn btn-success" href="gloves/create"><i class="oi oi-plus"></i> Create New</a>
+    <a class="btn btn-success" href="glove/create"><i class="oi oi-plus"></i> Create New</a>
 </div>
 <br />
 
@@ -35,8 +35,8 @@ else
                         <h6 class="card-text">@glove.Description</h6>
                         <h6 class="card-text">@glove.UserTask</h6>
                         @*<h6 class="card-text">@glove.GloveSizes</h6>*@
-                        <a class="btn btn-success" href="gloves/edit/@glove.Id">Edit</a>
-                        @*<a class="btn btn-danger" @onclick="@(() => DeleteGlove(glove.Id))">Delete</a>*@
+                        <a class="btn btn-info" href="glove/edit/@glove.Id">Edit</a>
+                        <a class="btn btn-danger" href="glove/delete/@glove.Id">Delete</a>
                     </div>
                 </div>
 

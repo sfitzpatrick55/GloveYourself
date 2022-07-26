@@ -9,28 +9,25 @@ namespace GloveYourself.Data.Models
         [Key]
         public int Id { get; set; }
 
-        public byte Image { get; set; }
+        public byte? Image { get; set; }
+
+        [Required]
+        public string Title { get; set; }
 
         [Required]
         public string Brand { get; set; }
 
         [Required]
-        public string Title { get; set; }
-
         public string Description { get; set; }
 
-        public ICollection<GloveSize> GloveSizes { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
 
-        [ForeignKey(nameof(UserTask))]
-        public int TaskId { get; set; }
+        public virtual ICollection<GloveSize> GloveSizes { get; set; } // One-to-many
 
-        public virtual UserTask UserTask { get; set; }
+        //[ForeignKey(nameof(UserTask))]
+        //public virtual ICollection<UserTask> UserTasks { get; set; } // One-to-many
 
         //[ForeignKey(nameof(ApplicationUser))]
-        public string ApplicationUserId { get; set; }
-
-        //public virtual ApplicationUser ApplicationUser { get; set; }
-
-        public DateTimeOffset CreatedUtc { get; set; }
+        //public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; } // One-to-many
     }
 }

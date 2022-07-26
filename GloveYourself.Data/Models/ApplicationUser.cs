@@ -10,15 +10,17 @@ namespace GloveYourself.Data.Models
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         [Display(Name = "Hand Width")]
         public decimal HandWidthInch { get; set; }
 
-        [Required]
         [Display(Name = "Date Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
         public decimal HandWidthMm => HandWidthInch * 25.4m;
+
+        public virtual ICollection<Glove> Gloves { get; set; } // One-to-many
+
     }
 }

@@ -13,9 +13,11 @@ namespace GloveYourself.Data.Models
         [Display(Name = "Task")]
         public string TaskName { get; set; }
 
-        [ForeignKey(nameof(Category))]
-        public int CategoryId { get; set; }
+        //[ForeignKey(nameof(Category))]
+        //public int CategoryId { get; set; }
 
-        public virtual Category Category { get; set; }
+        //public virtual Category Category { get; set; }
+
+        public virtual ICollection<Glove> Gloves { get; set; } // One-to-many
     }
 }
