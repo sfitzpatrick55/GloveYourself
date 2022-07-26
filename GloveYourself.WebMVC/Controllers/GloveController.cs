@@ -5,9 +5,11 @@ using GloveYourself.Data.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GloveYourself_BlazorWASM.Server.Controllers;
 
+[Authorize]
 public class GloveController : Controller
 {
     private readonly ApplicationDbContext _context;

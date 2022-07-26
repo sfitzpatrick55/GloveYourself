@@ -25,11 +25,10 @@ else
     @foreach (var glove in Model)
     {
         <div class="row">
-            <div class="col mx-auto justify-content-between">
-
+            <div class="col-sm-6">
                 <div class="card" style="width: 18rem;">
-                    @*<img src="GloveYourself_BlazorWASM/Shared/Assets/nitrile-black-glove.png" class="card-img-top" alt="black nitrile glove">*@
                     <div class="card-body">
+                        <img class="card-img-top" src="@glove.Image" alt="@glove.Title" />
                         <h3 class="card-title">@glove.Title</h3>
                         <h5 class="card-title">@glove.Brand</h5>
                         <h6 class="card-text">@glove.Description</h6>
@@ -39,7 +38,6 @@ else
                         <a class="btn btn-danger" href="glove/delete/@glove.Id">Delete</a>
                     </div>
                 </div>
-
             </div>
         </div>
     }
