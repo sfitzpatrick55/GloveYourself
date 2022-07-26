@@ -166,7 +166,7 @@ public class GloveController : Controller
     }
 
     // DELETE / Delete a glove
-    [HttpDelete]
+    [HttpPost]
     public IActionResult Delete(int? id, GloveDetail model)
     {
         var glove = _context.Gloves.Find(id);
