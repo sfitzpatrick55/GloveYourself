@@ -18,7 +18,13 @@ namespace GloveYourself.Data.Models
         [Display(Name = "Date Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        public decimal HandWidthMm => HandWidthInch * 25.4m;
+        public decimal HandWidthMm //=> HandWidthInch * 25.4m;
+        {
+            get
+            {
+                return HandWidthInch * 25.4m;
+            }
+        }
 
         public virtual ICollection<Glove> Gloves { get; set; } // One-to-many
 

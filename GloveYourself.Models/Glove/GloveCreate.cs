@@ -5,7 +5,7 @@ namespace GloveYourself.Models.Glove
 {
     public class GloveCreate
     {
-        public byte? Image { get; set; }
+        public byte[]? Image { get; set; }
 
         [Required]
         [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]

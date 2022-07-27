@@ -12,16 +12,16 @@
 </div>
 <br />
 
-@if (Model == null)
+@*@if (Model == null)
 {
     <p><em>Loading...</em></p>
 }
-@*else if (Model.Count == 0)
+else if (Model.Count<GloveIndex>)
 {
     <p><em>No Records Found.</em></p>
-}*@
+}
 else
-{
+{*@
     @foreach (var glove in Model)
     {
         <div class="row">
@@ -41,7 +41,7 @@ else
             </div>
         </div>
     }
-}
+
 
 @*<h1>Details</h1>
 

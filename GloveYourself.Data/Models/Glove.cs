@@ -9,7 +9,7 @@ namespace GloveYourself.Data.Models
         [Key]
         public int Id { get; set; }
 
-        public byte? Image { get; set; }
+        public byte[]? Image { get; set; }
 
         [Required]
         public string Title { get; set; }

@@ -7,7 +7,7 @@ namespace GloveYourself.Models.Glove
     {
         public int Id { get; set; }
 
-        public byte? Image { get; set; }
+        public byte[]? Image { get; set; }
 
         public string Title { get; set; }
 
