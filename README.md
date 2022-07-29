@@ -1,4 +1,4 @@
-# Hungry Helper
+# GloveYourself
 By: `Scott Fitzpatrick`
 
 ## Description
