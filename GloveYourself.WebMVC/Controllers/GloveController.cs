@@ -12,172 +12,85 @@ namespace GloveYourself_BlazorWASM.Server.Controllers;
 [Authorize]
 public class GloveController : Controller
 {
-    private readonly ApplicationDbContext _context;
+    //IGloveService constructor
 
-    public GloveController(ApplicationDbContext context)
+    private readonly IGloveService _gloveService;
+
+    public GloveController(IGloveService gloveService)
     {
-        _context = context;
+        _gloveService = gloveService;
     }
 
     // GET all gloves
+
     public IActionResult Index()
     {
-        var gloves = _context.Gloves.Select(glove => new GloveIndex
-        {
-            Id = glove.Id,
-            Image = glove.Image,
-            Brand = glove.Brand,
-            Title = glove.Title,
-            Description = glove.Description,
-            //UserTask = glove.UserTasks,
-            CreatedUtc = glove.CreatedUtc
-        });
-        return View(gloves);
+        return View(_gloveService.GetGloves());
     }
 
-    // GET / Create new glove
+    //
+    // GET: / glove/create
+
     public IActionResult Create()
     {
+        // ViewBag dropdown here
         return View();
     }
 
-    // POST / Create new glove
+    //
+    // POST: / glove/create
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Create(GloveCreate model)
     {
-        if (!ModelState.IsValid)
+        if (!_gloveService.CreateGlove(model))
         {
-            TempData["ErrorMsg"] = "Model State is Invalid";
-            return View(model);
-        }
-        _context.Gloves.Add(new Glove
-        {
-            Image = model.Image,
-            Title = model.Title,
-            Brand = model.Brand,
-            Description = model.Description,
-            CreatedUtc = DateTimeOffset.Now
-        });
-        if (_context.SaveChanges() == 1)
-        {
-            return Redirect("/Glove");
-        }
-        TempData["ErrorMsg"] = "Unable to save glove to the database. Please try again.";
+            // ViewBag dropdown here
+            return View();
 
-        return View(model);
+        }
+        return RedirectToAction("Index");
     }
 
-    // GET / glove/details/{id}
+    //
+    // GET: / glove/details/{id}
     public IActionResult Details(int? id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
-        var glove = _context.Gloves.Find(id);
-        if (glove == null)
-        {
-            return NotFound();
-        }
-        var model = new GloveDetail
-        {
-            Image = glove.Image,
-            Id = glove.Id,
-            Title = glove.Title,
-            Brand = glove.Brand,
-            Description = glove.Description,
-            //UserTask = _context.Tasks.TaskName,
-            CreatedUtc = glove.CreatedUtc
-        };
-        return View(model);
+        return View(/*GloveDetail*/);
     }
 
-    // GET / Grab a glove's info for edit
+    //
+    // GET: / glove/edit/{id}
     [HttpGet]
-    public IActionResult Edit(int? id)
+    public IActionResult Edit(int id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
-        var glove = _context.Gloves.Find(id);
-        if (glove == null)
-        {
-            return NotFound();
-        }
-        var model = new GloveEdit
-        {
-            Id = glove.Id,
-            Image = glove.Image,
-            Title = glove.Title,
-            Brand = glove.Brand,
-            Description = glove.Description,
-        };
-        return View(model);
+        return View(/*GloveEdit*/);
     }
 
-    // POST / Edit a glove
+    //
+    // POST: / glove/edit/{id}
     [HttpPost]
     public IActionResult Edit(int id, GloveEdit model)
     {
-        var glove = _context.Gloves.Find(id);
-        if (glove == null)
-        {
-            return NotFound();
-        }
-        glove.Image = model.Image;
-        glove.Title = model.Title;
-        glove.Brand = model.Brand;
-        glove.Description = model.Description;
-
-        if (_context.SaveChanges() == 1)
-        {
-            return Redirect("/glove");
-        }
-
-        ViewData["ErrorMsg"] = "Unable to save glove to the database. Please try again.";
-
-        return View(model);
+        if (!_gloveService.EditGlove(model))
+            return View();
+        return RedirectToAction("Index");
     }
 
-    // GET / Grab a glove's into for delete
+    //
+    // GET: / glove/delete/{id}
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
-        var glove = _context.Gloves.Find(id);
-        if (glove == null)
-        {
-            return NotFound();
-        }
-        var model = new GloveDetail
-        {
-            Image = glove.Image,
-            Id = glove.Id,
-            Title = glove.Title,
-            Brand = glove.Brand,
-            Description = glove.Description,
-            //UserTask = _context.Tasks.TaskName,
-            CreatedUtc = glove.CreatedUtc
-        };
-        return View(model);
+        return View(/*GloveDetail*/);
     }
 
-    // DELETE / Delete a glove
+    //
+    // POST: / glove/delete/{id}
     [HttpPost]
-    public IActionResult Delete(int? id, GloveDetail model)
+    public IActionResult Delete(int id)
     {
-        var glove = _context.Gloves.Find(id);
-        if (glove == null)
-        {
-            return NotFound();
-        }
-        _context.Gloves.Remove(glove);
-        _context.SaveChanges();
-        return Redirect("/Glove");
+        return RedirectToAction("Index");
     }
 }

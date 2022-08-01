@@ -14,7 +14,7 @@ namespace GloveYourself.Data.Models
         [Key]
         public int Id { get; set; }
 
-        //[ForeignKey(nameof(Category))]
+        [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
 
         [Display(Name = "Minimum Hand Width")]

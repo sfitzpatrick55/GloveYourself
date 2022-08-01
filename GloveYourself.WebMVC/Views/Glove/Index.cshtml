@@ -22,6 +22,7 @@ else if (Model.Count<GloveIndex>)
 }
 else
 {*@
+<div class="card-container">
     @foreach (var glove in Model)
     {
         <div class="row">
@@ -30,9 +31,10 @@ else
                     <div class="card-body">
                         <img class="card-img-top" src="@glove.Image" alt="@glove.Title" />
                         <h3 class="card-title">@glove.Title</h3>
-                        <h5 class="card-title">@glove.Brand</h5>
-                        <h6 class="card-text">@glove.Description</h6>
-                        <h6 class="card-text">@glove.UserTask</h6>
+                        <h4 class="card-title">@glove.Brand</h4>
+                        <h5 class="card-text">@glove.Description</h5>
+                        <h6 class="card-text">Perfect for:</h6>
+                        <h5 class="card-text">@glove.UserTask</h5>
                         @*<h6 class="card-text">@glove.GloveSizes</h6>*@
                         <a class="btn btn-info" href="glove/edit/@glove.Id">Edit</a>
                         <a class="btn btn-danger" href="glove/delete/@glove.Id">Delete</a>
@@ -41,7 +43,7 @@ else
             </div>
         </div>
     }
-
+</div>
 
 @*<h1>Details</h1>
 

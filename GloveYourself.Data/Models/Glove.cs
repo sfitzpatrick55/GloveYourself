@@ -24,8 +24,8 @@ namespace GloveYourself.Data.Models
 
         public virtual ICollection<GloveSize> GloveSizes { get; set; } // One-to-many
 
-        //[ForeignKey(nameof(UserTask))]
-        //public virtual ICollection<UserTask> UserTasks { get; set; } // One-to-many
+        [ForeignKey(nameof(UserTask))]
+        public virtual ICollection<UserTask> UserTasks { get; set; } // One-to-many
 
         //[ForeignKey(nameof(ApplicationUser))]
         //public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; } // One-to-many

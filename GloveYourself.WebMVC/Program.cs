@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using GloveYourself.Data.Data;
 using GloveYourself.Data.Models;
+using GloveYourself.Services.Glove;
 //using GloveYourself.WebMVC.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped<IGloveService, GloveService>();
 
 //builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true);
     //.AddEntityFrameworkStores<ApplicationDbContext>();
