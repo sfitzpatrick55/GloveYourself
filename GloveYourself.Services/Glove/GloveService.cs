@@ -31,6 +31,19 @@ namespace GloveYourself.Services.Glove
             return query.ToArray();
         }
 
+        public GloveDetail GetGloveById(int Id)
+        {
+            var query = _context.Gloves.Single(g => g.Id == Id);
+
+            return new GloveDetail()
+            {
+                Id = query.Id,
+                Brand = query.Brand,
+                Title = query.Title,
+                CreatedUtc = query.CreatedUtc
+            };
+        }
+
         public bool CreateGlove(GloveCreate model)
         {
             var entity = new GloveYourself.Data.Models.Glove()
@@ -52,7 +65,7 @@ namespace GloveYourself.Services.Glove
             return _context.SaveChanges() == 5;
         }
 
-        public bool Edit(GloveEdit model)
+        public bool EditGlove(GloveEdit model)
         {
             var glove = _context.Gloves.Find(model.Id);
 
@@ -68,11 +81,12 @@ namespace GloveYourself.Services.Glove
             return _context.SaveChanges() == 1;
         }
 
-        public bool Delete(int id)
+        public bool DeleteGlove(int id)
         {
             var glove = _context.Gloves.Find(id);
 
             _context.Gloves.Remove(glove);
+
             return _context.SaveChanges() == 1;
 
             //var model = new GloveDetail

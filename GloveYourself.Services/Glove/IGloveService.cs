@@ -6,10 +6,12 @@ namespace GloveYourself.Services.Glove
     {
         IEnumerable<GloveIndex> GetGloves();
 
+        GloveDetail GetGloveById(int Id);
+
         bool CreateGlove(GloveCreate model);
 
-        bool Edit(GloveEdit model);
+        bool EditGlove(GloveEdit model);
 
-        bool Delete(int id);
+        bool DeleteGlove(int id);
     }
 }

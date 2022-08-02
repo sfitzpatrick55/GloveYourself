@@ -55,21 +55,38 @@ public class GloveController : Controller
 
     //
     // GET: / glove/details/{id}
-    public IActionResult Details(int? id)
+
+    public IActionResult Details(int id)
     {
-        return View(/*GloveDetail*/);
+        var check = _gloveService.GetGloveById(id);
+
+        if (check == null)
+        {
+            return NotFound();
+        }
+
+        return View(check);
     }
 
     //
     // GET: / glove/edit/{id}
+
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        return View(/*GloveEdit*/);
+        var check = _gloveService.GetGloveById(id);
+
+        if (check == null)
+        {
+            return NotFound();
+        }
+
+        return View(check);
     }
 
     //
     // POST: / glove/edit/{id}
+
     [HttpPost]
     public IActionResult Edit(int id, GloveEdit model)
     {
@@ -80,16 +97,25 @@ public class GloveController : Controller
 
     //
     // GET: / glove/delete/{id}
+
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        return View(/*GloveDetail*/);
+        var check = _gloveService.GetGloveById(id);
+
+        if (check == null)
+        {
+            return NotFound();
+        }
+
+        return View(check);
     }
 
     //
     // POST: / glove/delete/{id}
+
     [HttpPost]
-    public IActionResult Delete(int id)
+    public IActionResult Delete()
     {
         return RedirectToAction("Index");
     }
