@@ -13,5 +13,7 @@ namespace GloveYourself.Services.Glove
         bool EditGlove(GloveEdit model);
 
         bool DeleteGlove(int id);
+
+        IEnumerable<GloveIndex> CreateCategoryDropDownList();
     }
 }

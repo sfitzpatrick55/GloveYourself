@@ -25,14 +25,14 @@ namespace GloveYourself.Models.Glove
         public string Description { get; set; }
 
         public string GloveSize { get; set; }
-        public ICollection<GloveSize> GloveSizes { get; set; }
+        public ICollection<GloveYourself.Data.Models.GloveSize> GloveSizes { get; set; }
+
+        public virtual GloveYourself.Data.Models.Category Category { get; set; }
 
         [ForeignKey(nameof(UserTask))]
         public virtual ICollection<UserTask> UserTasks { get; set; } // One-to-many
 
         public DateTimeOffset CreatedUtc { get; set; }
-
-        public int CategoryId { get; set; }
 
         //public string ApplicationUserId { get; set; }
     }

@@ -22,7 +22,10 @@ namespace GloveYourself.Data.Models
 
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [ForeignKey(nameof(GloveSize))]
         public virtual ICollection<GloveSize> GloveSizes { get; set; } // One-to-many
+
+        public virtual Category Category { get; set; } // One-to-one
 
         [ForeignKey(nameof(UserTask))]
         public virtual ICollection<UserTask> UserTasks { get; set; } // One-to-many

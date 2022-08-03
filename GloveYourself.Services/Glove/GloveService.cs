@@ -1,6 +1,9 @@
 ﻿using System;
 using GloveYourself.Models.Glove;
 using GloveYourself.Data.Data;
+using GloveYourself.Data.Models;
+using GloveYourself.Services.Category;
+using GloveYourself.Models.Category;
 
 namespace GloveYourself.Services.Glove
 {
@@ -54,6 +57,7 @@ namespace GloveYourself.Services.Glove
                     Description = model.Description,
                     CreatedUtc = DateTimeOffset.Now,
                     GloveSizes = model.GloveSizes,
+                    Category = model.Category,
                     UserTasks = model.UserTasks
                 };
 
@@ -88,17 +92,15 @@ namespace GloveYourself.Services.Glove
             _context.Gloves.Remove(glove);
 
             return _context.SaveChanges() == 1;
+        }
 
-            //var model = new GloveDetail
-            //{
-            //    Image = glove.Image,
-            //    Id = glove.Id,
-            //    Title = glove.Title,
-            //    Brand = glove.Brand,
-            //    Description = glove.Description,
-            //    //UserTask = _context.Tasks.TaskName,
-            //    CreatedUtc = glove.CreatedUtc
-            //};
+        public IEnumerable<CategoryIndex> CreateCategoryDropDownList()
+        {
+            var categoryService = new CategoryService.CategoryService(_context);
+
+            var categories = categoryService.GetAllCategories();
+
+            return categories;
         }
     }
 }

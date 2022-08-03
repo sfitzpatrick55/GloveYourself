@@ -7,6 +7,7 @@ using GloveYourself.Services.Glove;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -20,6 +21,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+//
+// Add dependency injection items.
 builder.Services.AddScoped<IGloveService, GloveService>();
 
 //builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true);

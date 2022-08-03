@@ -10,6 +10,8 @@
     <None Remove="Microsoft.AspNet.Identity.EntityFramework" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Glove\" />
+    <None Remove="GloveSize\" />
+    <None Remove="Category\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.3" />
@@ -17,6 +19,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Glove\" />
+    <Folder Include="GloveSize\" />
+    <Folder Include="Category\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GloveYourself.Data\GloveYourself.Data.csproj" />
